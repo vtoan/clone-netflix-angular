@@ -1,0 +1,30 @@
+<div class="movie-content">
+  <thumb [itemId]="itemMovie.id" class="movie-thumb"></thumb>
+  <div class="movie-info">
+    <div class="movie-actions">
+      <a class="act-play" (click)="onPlay()">
+        <mat-icon class="icon">play_arrow</mat-icon>
+      </a>
+      <a (click)="onAddBookmark()">
+        <mat-icon class="icon">add</mat-icon>
+      </a>
+      <a (click)="onLike()">
+        <mat-icon class="icon">thumb_up</mat-icon>
+      </a>
+      <a (click)="onDislike()">
+        <mat-icon class="icon">thumb_down</mat-icon>
+      </a>
+      <a (click)="onMoreDetail()">
+        <mat-icon class="icon">expand_more</mat-icon>
+      </a>
+    </div>
+    <p class="info-container">
+      <span class="movie-matched bold">Match 98%</span
+      ><span class="movie-age">16+</span><span class="movie-time">1g39ph</span>
+    </p>
+    <p class="movie-cate">
+      <span>Bung no</span> - <span>Ly thu</span> -
+      <span>Kich thich</span>
+    </p>
+  </div>
+</div>

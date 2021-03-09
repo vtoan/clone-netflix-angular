@@ -1,0 +1,86 @@
+<mat-dialog-content>
+  <thumb [playTrailer]="true"></thumb>
+  <div class="actions-container">
+    <div class="movie-actions">
+      <a class="act-square act-play" (click)="onPlay()">
+        <mat-icon class="icon">play_arrow</mat-icon>
+        <span class="act-label bold">Play movie</span>
+      </a>
+      <a (click)="onAddBookmark()">
+        <mat-icon class="icon">add</mat-icon>
+      </a>
+      <a (click)="onLike()">
+        <mat-icon class="icon">thumb_up</mat-icon>
+      </a>
+      <a (click)="onDislike()">
+        <mat-icon class="icon">thumb_down</mat-icon>
+      </a>
+      <a (click)="onMute()">
+        <mat-icon class="icon">volume_up</mat-icon>
+      </a>
+    </div>
+  </div>
+  <div class="info-container" style="margin-top: -50px">
+    <div class="d-lex">
+      <div class="col-7 bold" style="font-size: 1.25em">
+        <p style="margin-bottom: 1.25em">
+          <span class="movie-matched">Match 98%</span>
+          <span>1999</span>
+          <span class="movie-age">16+</span><span>1g39ph</span>
+        </p>
+        <p>
+          Sau một thế kỷ im lặng, chiến tranh bùng nổ giữa Liên hiệp và Đế chế
+          Klingon. Giữa cuộc xung đột đó là một sĩ quan Hạm đội bị ghét bỏ.
+        </p>
+      </div>
+      <div class="col-3">
+        <p>
+          <span class="tag-label">Dien vien: </span>
+          <a *ngFor="let actor of actors">{{ actor.name }}</a>
+        </p>
+        <p>
+          <span class="tag-label">The loai: </span>
+          <a *ngFor="let actor of actors">{{ actor.name }}</a>
+        </p>
+        <p>
+          <span class="tag-label">Chuong trinh nay thuoc the loai: </span>
+          <a *ngFor="let actor of actors">{{ actor.name }}</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="info-container">
+    <list-movie-related></list-movie-related>
+  </div>
+  <div class="info-container">
+    <h2>
+      <span style="font-weight: normal; margin-right: 0"
+        >Gioi thieu ve phim </span
+      >Thien ac doi dau
+    </h2>
+    <p>
+      <span class="tag-label">Dao dien: </span>
+      <a *ngFor="let actor of actors">{{ actor.name }}</a>
+    </p>
+    <p>
+      <span class="tag-label">Dien vien: </span>
+      <a *ngFor="let actor of actors">{{ actor.name }}</a>
+    </p>
+    <p>
+      <span class="tag-label">Bien kich: </span>
+      <a *ngFor="let actor of actors">{{ actor.name }}</a>
+    </p>
+    <p>
+      <span class="tag-label">The loai: </span>
+      <a *ngFor="let actor of actors">{{ actor.name }}</a>
+    </p>
+    <p>
+      <span class="tag-label">Bo phim nay thuoc the loai: </span>
+      <a *ngFor="let actor of actors">{{ actor.name }}</a>
+    </p>
+    <p>
+      <span class="tag-label">Xep hang do tuoi: </span>
+      <span class="movie-age">16+</span>
+    </p>
+  </div>
+</mat-dialog-content>

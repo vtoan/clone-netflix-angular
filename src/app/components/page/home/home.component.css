@@ -1,0 +1,17 @@
+.content {
+  z-index: 999;
+  position: relative;
+  top: -30%;
+}
+@media screen and (min-width: 1330px) {
+  .content{
+    top: -50%;
+  }
+}
+.movie-actions a:last-child {
+  margin-left: 0;
+  margin-right: 0;
+}
+.act-square {
+  padding: 0.5em 2em;
+}

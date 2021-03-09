@@ -1,0 +1,20 @@
+<style>
+  .empty {
+    text-transform: capitalize;
+    text-align: center;
+  }
+  .spinner-container {
+    text-align: center;
+    padding: 15vh 0;
+  }
+  .spinner-container mat-spinner {
+    margin: 0 auto;
+  }
+</style>
+<div *ngIf="isSpinner && isLoading" class="spinner-container">
+  <mat-spinner color="warn"></mat-spinner>
+</div>
+<div *ngIf="!isSpinner && isLoading">
+  <app-item-loading></app-item-loading>
+</div>
+<p class="empty" *ngIf="isEmpty && !isLoading">no data</p>

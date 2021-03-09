@@ -1,0 +1,88 @@
+.category {
+  margin-bottom: 4em;
+}
+.category-title {
+  font-size: 1.4vw;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 0.75em;
+  color: #e5e5e5;
+  padding-left: 48px;
+}
+.category-title .sub-link {
+  display: inline-block;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+  font-size: 1vw;
+}
+.category-title:hover .sub-link {
+  left: 105%;
+  z-index: 100;
+  opacity: 100;
+  transform: translateX(10px);
+  pointer-events: all;
+}
+/*============== act-more =============*/
+.category-container{
+  position: relative;
+}
+.category-container .act-more {
+  position: absolute;
+  z-index: 100;
+  width: 60px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .2s;
+  color: #fff;
+}
+.category-container  .act-more .icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  color: #fff;
+  height: 48px;
+  width: 48px;
+  font-size: 3.5em;
+}
+.category-container .act-more.left{
+  left: 0;
+}
+.category-container .act-more.right{
+  right: 0;
+}
+.category-container .act-more:hover {
+  opacity: 90;
+}
+/*============== lists =============*/
+.list-container {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: -4px;
+  padding: 0 48px;
+  transition: transform 0.3s ease-in-out;
+}
+/*============== list-item =============*/
+.list-item {
+  border-radius: 4px;
+  position: relative;
+  margin: 0 4px;
+  min-width: 18.5%;
+  background-color: gainsboro;
+  color: white;
+  padding-top: 11%;
+}
+@media screen and (min-width: 1330px) {
+  .list-container {
+    padding: 0 52px;
+  }
+  .list-item {
+    min-width: 16%;
+    padding-top: 9%;
+  }
+}

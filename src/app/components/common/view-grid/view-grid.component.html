@@ -1,0 +1,30 @@
+<style>
+  .grid-view {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 -8px;
+  }
+
+  .grid-item {
+    border-radius: 4px;
+    position: relative;
+    /* padding: 0 4px; */
+    min-width: calc(25% - 24px);
+    background-color: gainsboro;
+    color: white;
+    padding-top: 15%;
+    margin-bottom: 64px;
+  }
+</style>
+<div class="container">
+  <div class="grid-view">
+    <item-movie
+      *ngFor="let item of listMovie"
+      [itemMovie]="item"
+      class="grid-item"
+    ></item-movie>
+  </div>
+</div>

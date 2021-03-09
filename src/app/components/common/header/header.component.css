@@ -1,0 +1,28 @@
+.header {
+  position: fixed;
+  padding: 24px 48px;
+  z-index: 9999;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 40px 100px #000 inset;
+}
+
+.header-content {
+  display: flex;
+  cursor: pointer;
+}
+
+.title {
+  font-weight: bold;
+  color: #f5222d;
+  font-size: 1.5em;
+  margin-right: 16px;
+}
+
+.nav a {
+  padding: 0 16px;
+}
+
+.actions {
+  margin-left: auto;
+}

@@ -1,0 +1,23 @@
+.footer{
+    width: 70%;
+    margin: 0 auto;
+    color: grey;
+}
+
+mat-icon{
+    margin-right: 32px;
+    font-size: 3em;
+}
+
+.policy-container{
+    display: flex;
+}
+.policy-item{
+    width: 25%;
+}
+
+.code-service{
+    border: 1px solid grey;
+    padding: 0.5em 1em;
+    display: inline-block;
+}

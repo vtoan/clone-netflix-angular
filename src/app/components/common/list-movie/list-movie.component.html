@@ -1,0 +1,21 @@
+<div class="category">
+  <div class="category-title">
+    <span>{{ movieViewItem.title }}</span>
+    <div class="sub-link">
+      <a href="https://www.google.com/">xem tat ca</a>
+    </div>
+  </div>
+  <div class="category-container">
+    <div class="act-more right" (click)="onNextSlide()">
+      <mat-icon class="icon">arrow_forward_ios</mat-icon>
+    </div>
+    <div class="act-more left" (click)="onBackSlide()">
+      <mat-icon class="icon">arrow_back_ios</mat-icon>
+    </div>
+    <div #container class="list-container">
+      <div class="list-item" *ngFor="let item of movieViewItem.movies">
+        <item-movie [itemMovie]="item"></item-movie>
+      </div>
+    </div>
+  </div>
+</div>
