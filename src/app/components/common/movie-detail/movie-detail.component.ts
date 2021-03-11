@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {IActor} from '../../../interfaces/IActor';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { IMovie } from 'src/app/interfaces/IMovie';
 
 @Component({
   selector: 'app-movie-detail',
@@ -7,21 +8,10 @@ import {IActor} from '../../../interfaces/IActor';
   styleUrls: ['./movie-detail.component.css'],
 })
 export class MovieDetailComponent implements OnInit {
-  actors: IActor[] = [
-    {
-      id: '1',
-      name: 'Sonequa Martin-Green',
-    },
-    {
-      id: '1',
-      name: 'Doug Jones',
-    },
-    {
-      id: '1',
-      name: 'Anthony Rapp',
-    },
-  ];
-  constructor() {}
+  actors: string[] = [];
+  constructor(@Inject(MAT_DIALOG_DATA) public data :IMovie) {
+    console.log(data);
+  }
 
   ngOnInit(): void {}
   onPlay(): void {}

@@ -1,5 +1,5 @@
 export interface IMovie {
-  id?: string;
+  id?: number;
   name?: string;
   description?: string;
   linkMovie?: string;
@@ -7,12 +7,13 @@ export interface IMovie {
   linkThumbnail?: string;
   year?: number;
   time?: string;
+  ages?: number;
   likes?: number;
   dislikes?: number;
   translators?: string[];
   directors?: string[];
   actors?: string[];
-  shortCategories?: string[];
-  categories?: string[];
-  types?: string[];
+  subCategories?: string[];
+  category?:number;
+  type?: number;
 }

@@ -1,11 +1,15 @@
-import { Component, Input } from '@angular/core';
-import { IMovieListView } from 'src/app/interfaces/IMovieListVIew';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IModelListView } from '../list-movie/list-movie.component';
 
 @Component({
-  selector: 'app-view-list',
+  selector: 'view-list',
   templateUrl: './view-list.component.html',
 })
-export class ViewListComponent {
-  @Input() datas: IMovieListView[];
+export class ViewListComponent implements OnInit {
+  @Input() datas: Observable<IModelListView[]>;
   constructor() {}
+  ngOnInit(): void {
+    this.datas.subscribe((val) => console.log(val));
+  }
 }

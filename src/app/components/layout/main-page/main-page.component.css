@@ -1,0 +1,59 @@
+.heading-page {
+  text-transform: uppercase;
+  margin-bottom: 0;
+  margin-right: 48px;
+}
+.heading-container {
+  display: flex;
+  margin-bottom: 48px !important;
+  position: relative;
+}
+.main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.main-image .banner{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;
+  height: 100%;
+  width: 100%;
+}
+.home-container {
+  margin-top: -100px;
+}
+.content {
+  padding-top: 40vh;
+  position: relative;
+}
+
+.content-heading {
+  padding-top: 30vh;
+}
+
+.movie-actions {
+  margin-bottom: 64px;
+  position: relative;
+}
+@media screen and (min-width: 1330px) {
+}
+.movie-actions a:last-child {
+  margin-left: 0;
+  margin-right: 0;
+}
+.act-square {
+  padding: 0.2em 2em;
+}
+.content-wrapper{
+  transition: all 0.5s;
+  opacity: 1;
+}
+
+.loaded{
+  opacity: 1;
+}

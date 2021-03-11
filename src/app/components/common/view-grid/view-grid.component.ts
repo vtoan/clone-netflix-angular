@@ -6,6 +6,6 @@ import { IMovie } from 'src/app/interfaces/IMovie';
   templateUrl: './view-grid.component.html',
 })
 export class ViewGridComponent {
-  @Input() listMovie: IMovie[] = [];
+  @Input() datas: IMovie[] = [];
   constructor() {}
 }

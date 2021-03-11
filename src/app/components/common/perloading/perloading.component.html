@@ -11,10 +11,20 @@
     margin: 0 auto;
   }
 </style>
-<div *ngIf="isSpinner && isLoading" class="spinner-container">
-  <mat-spinner color="warn"></mat-spinner>
-</div>
-<div *ngIf="!isSpinner && isLoading">
-  <app-item-loading></app-item-loading>
+<!-- ['item', 'spinner'] -->
+<div [ngSwitch]="type">
+  <div *ngSwitchCase="'spinner'">
+    <div *ngIf="isLoading" class="spinner-container">
+      <mat-spinner color="warn"></mat-spinner>
+    </div>
+  </div>
+  <div *ngSwitchDefault>
+    <!-- <div *ngIf="isLoading">
+      <app-item-loading></app-item-loading>
+    </div> -->
+    <div *ngIf="isLoading" class="spinner-container">
+      <mat-spinner color="warn"></mat-spinner>
+    </div>
+  </div>
 </div>
 <p class="empty" *ngIf="isEmpty && !isLoading">no data</p>

@@ -6,16 +6,16 @@
         <mat-icon class="icon">play_arrow</mat-icon>
         <span class="act-label bold">Play movie</span>
       </a>
-      <a (click)="onAddBookmark()">
+      <!-- <a (click)="onAddBookmark()">
         <mat-icon class="icon">add</mat-icon>
-      </a>
+      </a> -->
       <a (click)="onLike()">
         <mat-icon class="icon">thumb_up</mat-icon>
       </a>
       <a (click)="onDislike()">
         <mat-icon class="icon">thumb_down</mat-icon>
       </a>
-      <a (click)="onMute()">
+      <a style="visibility: hidden" (click)="onMute()">
         <mat-icon class="icon">volume_up</mat-icon>
       </a>
     </div>
@@ -36,15 +36,15 @@
       <div class="col-3">
         <p>
           <span class="tag-label">Dien vien: </span>
-          <a *ngFor="let actor of actors">{{ actor.name }}</a>
+          <a class="tab-item" *ngFor="let actor of data.actors">{{ actor }}, </a>
         </p>
         <p>
           <span class="tag-label">The loai: </span>
-          <a *ngFor="let actor of actors">{{ actor.name }}</a>
+          <a class="tab-item" *ngFor="let actor of actors">{{ actor }}</a>
         </p>
         <p>
           <span class="tag-label">Chuong trinh nay thuoc the loai: </span>
-          <a *ngFor="let actor of actors">{{ actor.name }}</a>
+          <a class="tab-item" *ngFor="let actor of actors">{{ actor }}</a>
         </p>
       </div>
     </div>
@@ -60,27 +60,29 @@
     </h2>
     <p>
       <span class="tag-label">Dao dien: </span>
-      <a *ngFor="let actor of actors">{{ actor.name }}</a>
+      <a class="tab-item" *ngFor="let actor of data.directors">{{ actor }}, </a>
     </p>
     <p>
       <span class="tag-label">Dien vien: </span>
-      <a *ngFor="let actor of actors">{{ actor.name }}</a>
+      <a class="tab-item" *ngFor="let actor of data.actors">{{ actor }}, </a>
     </p>
     <p>
       <span class="tag-label">Bien kich: </span>
-      <a *ngFor="let actor of actors">{{ actor.name }}</a>
+      <a class="tab-item" *ngFor="let actor of data.translators">{{ actor }}, </a>
     </p>
     <p>
       <span class="tag-label">The loai: </span>
-      <a *ngFor="let actor of actors">{{ actor.name }}</a>
+      <a class="tab-item" *ngFor="let actor of data.subCategories">{{
+        actor
+      }}, </a>
     </p>
     <p>
       <span class="tag-label">Bo phim nay thuoc the loai: </span>
-      <a *ngFor="let actor of actors">{{ actor.name }}</a>
+      <a> {{ data.category }}</a>
     </p>
     <p>
       <span class="tag-label">Xep hang do tuoi: </span>
-      <span class="movie-age">16+</span>
+      <span class="movie-age">{{ data.ages }}+</span>
     </p>
   </div>
 </mat-dialog-content>

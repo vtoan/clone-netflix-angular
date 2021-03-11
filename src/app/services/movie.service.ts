@@ -4,6 +4,8 @@ import { IMovie } from '../interfaces/IMovie';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { copyObject } from '../helper/usefull';
+import { IType } from '../interfaces/IType';
+import { Dump } from '../dumpData';
 //
 const defaultMovie: IMovie = {
   name: 'emtpy',
@@ -18,21 +20,25 @@ const defaultMovie: IMovie = {
   translators: [],
   directors: [],
   actors: [],
-  shortCategories: [],
-  categories: [],
-  types: [],
+  subCategories: [],
+  category: 0,
+  type: 0,
 };
+
 //
 @Injectable({
   providedIn: 'root',
 })
 export class MovieService {
-  datas = new Subject<IMovie[]>();
+  // datas = new Subject<IMovie[]>();
   private _storage;
   private _movieCollection;
   constructor(private db: ConnectDbService, private toastr: ToastrService) {
     this._storage = db.getInstnace();
     this._movieCollection = this._storage.collection('movies');
+    // let dump = new Dump(this._storage);
+    // console.log(dump.generate());
+    // dump.generate();
   }
   private _createMovie(movie: IMovie): IMovie {
     return { ...copyObject(defaultMovie), ...movie };
@@ -44,14 +50,19 @@ export class MovieService {
     );
     return movies;
   }
-  private _filterDoc(target, id): Promise<any> {
+  private _filterDoc(
+    target,
+    id,
+    compare: string = 'array-contains'
+  ): Promise<any> {
     return this._movieCollection
-      .where(target, '==', id)
+      .where(target, compare, id)
       .get()
       .then((doc) => this._convertToMovies(doc))
       .catch((err) => {
         this.toastr.error(err, 'Error getting document:');
-        return Promise.reject();
+        console.log(err);
+        return [];
       });
   }
   private _checkExist(collectionName, id): Promise<any> {
@@ -65,37 +76,39 @@ export class MovieService {
         return Promise.reject();
       });
   }
-  private _getBy(collectName, id): any {
-    return this._checkExist(collectName, id)
-      .then(() => this._filterDoc(collectName, id))
-      .then((data) => this.datas.next(data))
-      .catch(() => this.datas.next([]));
+
+  // private _getBy(collectName, id, compare: string = 'array-contains'): any {
+  //   // return this._checkExist(collectName, id).then(() =>
+  //   // return this._filterDoc(collectName, id, compare);
+  //   // .then((data) => this.datas.next(data))
+  //   // .catch(() => Promise.resolve(this.datas.next([])))
+  // }
+
+  getByActor(id: string): Promise<IMovie[]> {
+    return this._filterDoc('actors', id);
   }
-  getByActor(id: string) {
-    this._getBy('actors', id);
+  getByDirector(id: string): Promise<IMovie[]> {
+    return this._filterDoc('directors', id);
   }
-  getByDirector(id: string) {
-    this._getBy('directors', id);
+  getByCategory(id: number): Promise<IMovie[]> {
+    return this._filterDoc('category', id, '==');
   }
-  getByCategory(id: string) {
-    this._getBy('categories', id);
+  getBySubCategory(id: string): Promise<IMovie[]> {
+    return this._filterDoc('shortCategories', id);
   }
-  getBySubCategory(id: string) {
-    this._getBy('shortCategories', id);
+  getByTranslator(id: string): Promise<IMovie[]> {
+    return this._filterDoc('translators', id);
   }
-  getByTranslator(id: string) {
-    this._getBy('translators', id);
+  getByType(id: number): Promise<IMovie[]> {
+    return this._filterDoc('type', id, '==');
   }
-  getByType(id: string) {
-    this._getBy('types', id);
-  }
-  getAll():Promise<IMovie[]> {
+  getAll(): Promise<IMovie[]> {
     return this._movieCollection
       .get()
       .then((querySnapshot) => this._convertToMovies(querySnapshot))
       .catch((err) => {
         this.toastr.error(err, 'Error getting collection');
-        this.datas.next([]);
+        // this.datas.next([]);
       });
   }
 }

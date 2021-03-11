@@ -1,6 +1,6 @@
 <style>
   .view-list {
-    padding-bottom: 180px;
+    padding-bottom: 220px;
     overflow-x: hidden;
     height: 100%;
   }
@@ -11,7 +11,7 @@
 <div class="view-list">
   <list-movie
     class="list-movie"
-    *ngFor="let item of datas; index as i"
+    *ngFor="let item of datas | async; index as i "
     [movieViewItem]="item"
     [ngStyle]="{ 'z-index': 100 - i }"
   ></list-movie>

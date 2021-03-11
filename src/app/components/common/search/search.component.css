@@ -1,0 +1,22 @@
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-btn {
+  padding-top: 0.4em;
+}
+
+.search-input {
+  position: relative;
+  margin-right: 16px;
+  transform: translateX(8%);
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.search-wrapper:hover .search-input {
+  transform: translateX(0);
+  opacity: 1;
+}

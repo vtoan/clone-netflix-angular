@@ -15,7 +15,6 @@ const firebaseConfig = {
 })
 export class ConnectDbService {
   constructor() {
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
   }
   getInstnace(): any {

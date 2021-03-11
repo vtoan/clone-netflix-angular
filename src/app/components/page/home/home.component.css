@@ -1,17 +1,23 @@
+.home-container {
+  margin-top: -100px;
+}
 .content {
-  z-index: 999;
+  padding-top: 65vh;
   position: relative;
-  top: -30%;
+}
+.main-image {
+  position: absolute;
+  top: 0;
+}
+.movie-actions {
+  margin-bottom: 64px;
 }
 @media screen and (min-width: 1330px) {
-  .content{
-    top: -50%;
-  }
 }
 .movie-actions a:last-child {
   margin-left: 0;
   margin-right: 0;
 }
 .act-square {
-  padding: 0.5em 2em;
+  padding: 0.2em 2em;
 }

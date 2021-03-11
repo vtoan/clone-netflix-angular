@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/common/header/header.component';
 import { FooterComponent } from './components/common/footer/footer.component';
 import { ListMovieComponent } from './components/common/list-movie/list-movie.component';
-import { LoadingComponent } from './components/common/loading/loading.component';
 import { MaterialUiModule } from './modules/material-ui.module';
 import { ItemLoadingComponent } from './components/common/item-loading/item-loading.component';
 import { ItemMovieComponent } from './components/common/item-movie/item-movie.component';
@@ -29,7 +28,10 @@ import { FeatureMovieComponent } from './components/page/feature-movie/feature-m
 import { TelevisonMovieComponent } from './components/page/televison-movie/televison-movie.component';
 import { PopularMovieComponent } from './components/page/popular-movie/popular-movie.component';
 import { PerloadingComponent } from './components/common/perloading/perloading.component';
-
+import { MainPageComponent } from './components/layout/main-page/main-page.component';
+import { CategoryMovieComponent } from './components/page/category-movie/category-movie.component';
+import { SearchComponent } from './components/common/search/search.component';
+import { ErrorComponent } from './components/page/error/error.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,6 @@ import { PerloadingComponent } from './components/common/perloading/perloading.c
     HeaderComponent,
     FooterComponent,
     ListMovieComponent,
-    LoadingComponent,
     ItemLoadingComponent,
     ItemMovieComponent,
     ThumbComponent,
@@ -54,6 +55,10 @@ import { PerloadingComponent } from './components/common/perloading/perloading.c
     TelevisonMovieComponent,
     PopularMovieComponent,
     PerloadingComponent,
+    MainPageComponent,
+    CategoryMovieComponent,
+    SearchComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

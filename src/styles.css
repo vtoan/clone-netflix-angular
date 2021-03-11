@@ -27,9 +27,6 @@ p {
 .bold {
   font-weight: bold;
 }
-.heading-page{
-  margin-bottom: 48px !important;
-}
 /*============== movie =============*/
 .movie-actions {
   display: flex;
@@ -53,7 +50,7 @@ p {
 .movie-actions a .icon {
   padding: 0.25em;
 }
-@media screen and (min-width: 1330px) {
+@media screen and (min-width: 1920px) {
   .movie-actions a {
     margin-right: 16px;
   }

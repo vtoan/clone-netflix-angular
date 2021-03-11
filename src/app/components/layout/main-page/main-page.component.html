@@ -1,0 +1,44 @@
+<div *ngIf="!config.isLoading && config.itemDisplay" class="main-image">
+  <div class="banner" style="background-image: url(/assets/thumbs/{{config.itemDisplay.linkThumbnail}})"></div>
+</div>
+<div *ngIf="!config.hideHeading" class="container">
+  <div class="heading-container">
+    <h1 class="heading-page">{{ config.title }}</h1>
+    <select
+      (change)="onChangeValue($event)"
+      *ngIf="config.subCategories != null"
+    >
+      <option *ngFor="let item of config.subCategories" value="{{ item.id }}">
+        {{ item.name }}
+      </option>
+    </select>
+  </div>
+</div>
+<app-perloading
+  *ngIf="config.isLoading"
+  [isLoading]="config.isLoading"
+  [isEmpty]="config.isEmpty"
+  [type]="config.typeLoading"
+></app-perloading>
+<div *ngIf="!config.isLoading">
+  <div *ngIf="config.itemDisplay" class="container">
+    <div
+      class="content"
+      [ngClass]="!config.hideHeading ? 'content-heading' : ''"
+    ></div>
+    <div class="movie-actions">
+      <a
+        class="act-square act-play"
+        routerLink="/movie/{{ config.itemDisplay.id }}"
+      >
+        <mat-icon class="icon">play_arrow</mat-icon>
+        <span class="act-label bold">Play movie</span>
+      </a>
+      <a class="act-square" (click)="onMoreDetail()">
+        <mat-icon class="icon">add</mat-icon>
+        <span class="act-label bold">See detail</span>
+      </a>
+    </div>
+  </div>
+  <ng-content *ngIf="!config.isLoading && !config.isEmpty"></ng-content>
+</div>

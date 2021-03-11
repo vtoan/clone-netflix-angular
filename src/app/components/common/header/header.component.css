@@ -1,15 +1,17 @@
 .header {
   position: fixed;
   padding: 24px 48px;
-  z-index: 9999;
+  z-index: 999;
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
   box-shadow: 0 40px 100px #000 inset;
 }
 
 .header-content {
   display: flex;
   cursor: pointer;
+  align-items: center;
 }
 
 .title {
@@ -21,6 +23,7 @@
 
 .nav a {
   padding: 0 16px;
+  color: grey;
 }
 
 .actions {

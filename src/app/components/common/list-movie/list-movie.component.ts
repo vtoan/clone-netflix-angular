@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { IMovieListView } from 'src/app/interfaces/IMovieListVIew';
+import { IMovie } from 'src/app/interfaces/IMovie';
 
 @Component({
   selector: 'list-movie',
@@ -7,7 +7,7 @@ import { IMovieListView } from 'src/app/interfaces/IMovieListVIew';
   styleUrls: ['./list-movie.component.css'],
 })
 export class ListMovieComponent {
-  @Input() movieViewItem: IMovieListView;
+  @Input() movieViewItem: IModelListView;
   @ViewChild('container') container: ElementRef;
   //
   private _clientWidth: number = 0;
@@ -18,6 +18,8 @@ export class ListMovieComponent {
 
   onNextSlide(): void {
     if (!this._getViewValue()) return;
+    if (this._slideCurrent <= 0) return;
+    if (this._slideCurrent > this._indexSlide) this._slideCurrent--;
     this._tranFromSlide(this._slideCurrent);
     if (this._slideCurrent == 1) return;
     this._slideCurrent--;
@@ -26,7 +28,7 @@ export class ListMovieComponent {
   onBackSlide() {
     if (!this._getViewValue()) return;
     if (this._slideCurrent >= this._indexSlide + 1) {
-      this._slideCurrent = this._indexSlide - 1;
+      this._slideCurrent = this._indexSlide;
       return;
     }
     this._slideCurrent++;
@@ -39,7 +41,7 @@ export class ListMovieComponent {
     this._clientWidth = this.container.nativeElement.clientWidth;
     this._maxScrollWidth = this.container.nativeElement.scrollWidth;
     this._indexSlide = Math.floor(this._maxScrollWidth / this._clientWidth);
-    this._slideCurrent = this._indexSlide - 1;
+    this._slideCurrent = this._indexSlide;
     return this._checkViewValue();
   }
 
@@ -50,8 +52,17 @@ export class ListMovieComponent {
   }
 
   private _tranFromSlide(index): void {
-    let val = this._maxScrollWidth - this._clientWidth * index;
+    console.log(index);
+    console.log(this._maxScrollWidth);
+    console.log(this._clientWidth);
+    let val = this._maxScrollWidth - (this._clientWidth * index - 52);
+    console.log(val);
     if (val <= 0) val = 0;
     this.container.nativeElement.style.transform = `translateX(-${val}px)`;
   }
+}
+export interface IModelListView {
+  title: string;
+  movies: IMovie[];
+  id: string;
 }

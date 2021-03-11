@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IMovie } from 'src/app/interfaces/IMovie';
 import { MovieService } from 'src/app/services/movie.service';
+import { ILayoutConfig } from '../../layout/main-page/main-page.component';
 
 @Component({
   selector: 'app-my-movie',
@@ -9,15 +10,18 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class MyMovieComponent implements OnInit {
   listMovie: IMovie[] = [];
-  isLoading: boolean = true;
-  isEmpty: boolean = true;
+  layoutConfig: ILayoutConfig = {
+    title: 'Phim le',
+    isLoading: true,
+    isEmpty: true,
+  };
   constructor(private movieSer: MovieService) {}
 
   ngOnInit(): void {
     this.movieSer.getAll().then((data) => {
       this.listMovie = data;
-      this.isLoading = false;
-      this.isEmpty = data.length == 0;
+      this.layoutConfig.isLoading = false;
+      this.layoutConfig.isEmpty = data.length == 0;
     });
   }
 }

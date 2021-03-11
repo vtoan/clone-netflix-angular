@@ -1,13 +1,26 @@
+<style>
+  .router-link-active {
+    color: #fff !important;
+  }
+</style>
 <div class="header">
   <div class="header-content">
     <span class="title">NOFLIX</span>
     <div class="nav">
-      <a routerLink="/" routerLinkActive="router-link-active" >Trang chu</a>
-      <a routerLink="/televison-movie" routerLinkActive="router-link-active" >Phim T.Hinh</a>
-      <a routerLink="/feature-movie" routerLinkActive="router-link-active" >Phim Le</a>
-      <a routerLink="/popular-movie" routerLinkActive="router-link-active" >Moi & Pho Bien</a>
-      <a routerLink="/my-movie" routerLinkActive="router-link-active" >Danh sach cua toi</a>
+      <a routerLink="/" routerLinkActive="router-link-active">Trang chu</a>
+      <a routerLink="/televison-movie" routerLinkActive="router-link-active"
+        >Phim T.Hinh</a
+      >
+      <a routerLink="/feature-movie" routerLinkActive="router-link-active"
+        >Phim Le</a
+      >
+      <a routerLink="/popular-movie" routerLinkActive="router-link-active"
+        >Moi & Pho Bien</a
+      >
+      <!-- <a routerLink="/my-movie" routerLinkActive="router-link-active" >Danh sach cua toi</a> -->
     </div>
-    <div class="actions">sear</div>
+    <div class="actions">
+      <app-search (onQueryChange)="onFind($event)"></app-search>
+    </div>
   </div>
 </div>

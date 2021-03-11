@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
 export class PerloadingComponent {
   @Input() isLoading: boolean = false;
   @Input() isEmpty: boolean = false;
-  @Input() isSpinner: boolean = false;
+  @Input() type: string = "";
   constructor() {}
 }

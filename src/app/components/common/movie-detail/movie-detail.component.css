@@ -33,3 +33,7 @@
 .tag-label {
   color: #777;
 }
+
+.tab-item{
+  text-transform: capitalize;
+}

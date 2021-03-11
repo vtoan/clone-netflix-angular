@@ -2,6 +2,7 @@
     width: 70%;
     margin: 0 auto;
     color: grey;
+    margin-top: -200px;
 }
 
 mat-icon{

@@ -1,13 +1,13 @@
 <div class="movie-content">
-  <thumb [itemId]="itemMovie.id" class="movie-thumb"></thumb>
+  <thumb [thumbLink]="itemMovie.linkThumbnail" class="movie-thumb"></thumb>
   <div class="movie-info">
     <div class="movie-actions">
-      <a class="act-play" (click)="onPlay()">
+      <a class="act-play" routerLink="/movie/{{ itemMovie.id }}">
         <mat-icon class="icon">play_arrow</mat-icon>
       </a>
-      <a (click)="onAddBookmark()">
+      <!-- <a (click)="onAddBookmark()">
         <mat-icon class="icon">add</mat-icon>
-      </a>
+      </a> -->
       <a (click)="onLike()">
         <mat-icon class="icon">thumb_up</mat-icon>
       </a>
@@ -20,11 +20,13 @@
     </div>
     <p class="info-container">
       <span class="movie-matched bold">Match 98%</span
-      ><span class="movie-age">16+</span><span class="movie-time">1g39ph</span>
+      ><span class="movie-age">{{ itemMovie.ages }} +</span
+      ><span class="movie-time">{{ itemMovie.time }}</span>
     </p>
     <p class="movie-cate">
-      <span>Bung no</span> - <span>Ly thu</span> -
-      <span>Kich thich</span>
+      <ng-container  *ngFor="let item of categories;index as i">
+        {{i==0 ? '':'-'}} <span class="tab-item">{{ item  }} </span>
+      </ng-container>
     </p>
   </div>
 </div>

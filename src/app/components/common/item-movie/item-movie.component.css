@@ -5,20 +5,31 @@
   right: 0;
   bottom: 0;
   z-index: 1;
-  transition: all 0.12s ease-out 0.1s;
+  transition: all 0.12s ease-out 0.3s;
   background-color: #434343;
   box-shadow: 1px 1px 15px black;
   border-radius: 4px;
+  animation: fade 0.5s ease-out;
+}
+@keyframes fade {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 .movie-content .movie-thumb {
   width: 100%;
   height: 100%;
 }
 .movie-content:hover {
-  top: -20%;
-  left: -20%;
-  right: -20%;
-  bottom: -20%;
+  top: -18%;
+  left: -18%;
+  right: -18%;
+  bottom: -18%;
   z-index: 100;
 }
 /*============== movie-info =============*/
@@ -29,11 +40,15 @@
   transition: none;
   cursor: pointer;
   visibility: hidden;
-  transition: all 0s linear 0.1s;
+  transition: all 0s linear 0.3s;
   border-radius: 0 0 4px 4px;
   font-size: 1.15em;
 }
 .movie-content:hover .movie-info {
   visibility: visible;
   box-shadow: 1px 1px 15px black;
+}
+
+.tab-item{
+  text-transform: capitalize;
 }

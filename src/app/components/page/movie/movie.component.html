@@ -1,1 +1,7 @@
-<p>movie works!</p>
+<main-page [config]="layoutConfig">
+  <div class="container">
+    <video id="player" playsinline>
+      <source src="{{ trailerLink }}" type="video/mp4" />
+    </video>
+  </div>
+</main-page>
