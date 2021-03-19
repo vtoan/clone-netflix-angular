@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { IMovie } from 'src/app/interfaces/IMovie';
@@ -22,7 +22,7 @@ export class MainPageComponent {
       height: '95%',
       width: '900px',
     });
-
+    
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });

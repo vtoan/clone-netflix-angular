@@ -2,9 +2,9 @@
   <thumb [playTrailer]="true"></thumb>
   <div class="actions-container">
     <div class="movie-actions">
-      <a class="act-square act-play" (click)="onPlay()">
+      <a class="act-square act-play"  (click)="onPlay()">
         <mat-icon class="icon">play_arrow</mat-icon>
-        <span class="act-label bold">Play movie</span>
+        <span class="act-label bold">Xem phim</span>
       </a>
       <!-- <a (click)="onAddBookmark()">
         <mat-icon class="icon">add</mat-icon>
@@ -15,7 +15,7 @@
       <a (click)="onDislike()">
         <mat-icon class="icon">thumb_down</mat-icon>
       </a>
-      <a style="visibility: hidden" (click)="onMute()">
+      <a style="visibility: hidden">
         <mat-icon class="icon">volume_up</mat-icon>
       </a>
     </div>
@@ -25,64 +25,80 @@
       <div class="col-7 bold" style="font-size: 1.25em">
         <p style="margin-bottom: 1.25em">
           <span class="movie-matched">Match 98%</span>
-          <span>1999</span>
-          <span class="movie-age">16+</span><span>1g39ph</span>
+          <span>{{ movieItem.year }}</span>
+          <span class="movie-age"> {{ movieItem.ages }} +</span
+          ><span>{{ movieItem.time }}</span>
         </p>
         <p>
-          Sau một thế kỷ im lặng, chiến tranh bùng nổ giữa Liên hiệp và Đế chế
-          Klingon. Giữa cuộc xung đột đó là một sĩ quan Hạm đội bị ghét bỏ.
+          {{ movieItem.description }}
         </p>
       </div>
       <div class="col-3">
         <p>
-          <span class="tag-label">Dien vien: </span>
-          <a class="tab-item" *ngFor="let actor of data.actors">{{ actor }}, </a>
+          <span class="tag-label">Dien vien:</span>
+          <a class="tab-item" *ngFor="let actor of movieItem.actors.slice(0, 3)"
+            >{{ actor }}, </a
+          >...
         </p>
         <p>
-          <span class="tag-label">The loai: </span>
-          <a class="tab-item" *ngFor="let actor of actors">{{ actor }}</a>
+          <span class="tag-label">The loai:</span>
+          <a
+            class="tab-item"
+            *ngFor="let item of movieItem.subCategories.slice(0, 3)"
+            >{{ item }}, </a
+          >..
         </p>
         <p>
           <span class="tag-label">Chuong trinh nay thuoc the loai: </span>
-          <a class="tab-item" *ngFor="let actor of actors">{{ actor }}</a>
+          <a class="tab-item">{{ movieItem.category }}</a>
         </p>
       </div>
     </div>
   </div>
-  <div class="info-container">
+  <!-- <div class="info-container">
     <list-movie-related></list-movie-related>
-  </div>
+  </div> -->
   <div class="info-container">
     <h2>
       <span style="font-weight: normal; margin-right: 0"
-        >Gioi thieu ve phim </span
-      >Thien ac doi dau
+        >Thong tin ve phim
+      </span>
+      <span style="text-transform: uppercase">
+        {{ movieItem.name }}
+      </span>
     </h2>
     <p>
       <span class="tag-label">Dao dien: </span>
-      <a class="tab-item" *ngFor="let actor of data.directors">{{ actor }}, </a>
+      <a class="tab-item" *ngFor="let item of movieItem.directors"
+        >{{ item }},
+      </a>
     </p>
     <p>
       <span class="tag-label">Dien vien: </span>
-      <a class="tab-item" *ngFor="let actor of data.actors">{{ actor }}, </a>
+      <a class="tab-item" *ngFor="let actor of movieItem.actors"
+        >{{ actor }},
+      </a>
     </p>
     <p>
       <span class="tag-label">Bien kich: </span>
-      <a class="tab-item" *ngFor="let actor of data.translators">{{ actor }}, </a>
+      <a class="tab-item" *ngFor="let item of movieItem.translators"
+        >{{ item }},
+      </a>
     </p>
     <p>
       <span class="tag-label">The loai: </span>
-      <a class="tab-item" *ngFor="let actor of data.subCategories">{{
-        actor
-      }}, </a>
+      <a class="tab-item" *ngFor="let actor of movieItem.subCategories"
+        >{{ actor }},
+      </a>
     </p>
     <p>
       <span class="tag-label">Bo phim nay thuoc the loai: </span>
-      <a> {{ data.category }}</a>
+      <a> {{ movieItem.category }}</a>
     </p>
+
     <p>
       <span class="tag-label">Xep hang do tuoi: </span>
-      <span class="movie-age">{{ data.ages }}+</span>
+      <span class="movie-age">{{ movieItem.ages }}+</span>
     </p>
   </div>
 </mat-dialog-content>

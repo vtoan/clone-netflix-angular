@@ -14,7 +14,7 @@ export class ItemMovieComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {}
   ngOnInit(): void {
-    this.categories = this.itemMovie.subCategories;
+    this.categories = this.itemMovie.subCategories.slice(0,3);
   }
   onAddBookmark(): void {}
   onLike(): void {}

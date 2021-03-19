@@ -8,16 +8,15 @@ import { IMovie } from 'src/app/interfaces/IMovie';
   styleUrls: ['./movie-detail.component.css'],
 })
 export class MovieDetailComponent implements OnInit {
-  actors: string[] = [];
-  constructor(@Inject(MAT_DIALOG_DATA) public data :IMovie) {
-    console.log(data);
+  constructor(@Inject(MAT_DIALOG_DATA) public movieItem :IMovie) {
+    console.log(movieItem);
   }
 
   ngOnInit(): void {}
   onPlay(): void {}
 
-  onAddBookmark(): void {}
+  // onAddBookmark(): void {}
   onLike(): void {}
   onDislike(): void {}
-  onMute(): void {}
+  // onMute(): void {}
 }

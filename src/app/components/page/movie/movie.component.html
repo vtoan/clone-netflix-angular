@@ -1,7 +1,60 @@
 <main-page [config]="layoutConfig">
-  <div class="container">
-    <video id="player" playsinline>
-      <source src="{{ trailerLink }}" type="video/mp4" />
-    </video>
+  <div class="container" style="margin-bottom: 32px">
+    <video id="player" playsinline></video>
+  </div>
+  <div *ngIf="movieItem" class="info-container">
+    <h2>
+      <span style="font-weight: normal; margin-right: 0"
+        >Thong tin ve phim 
+      </span>
+      <span style="text-transform: uppercase">
+        {{ movieItem.name }}
+      </span>
+    </h2>
+    <p>
+      <span class="tag-label">Nam san xuat: </span>
+      <a> {{ movieItem.year }}</a>
+    </p>
+    <p>
+      <span class="tag-label">Thoi luong: </span>
+      <a> {{ movieItem.time }}</a>
+    </p>
+    <p>
+      <span class="tag-label">Mo ta: </span>
+      <a> {{ movieItem.description }}</a>
+    </p>
+    <p>
+      <span class="tag-label">Dao dien: </span>
+      <a class="tab-item" *ngFor="let item of movieItem.directors"
+        >{{ item }},
+      </a>
+    </p>
+    <p>
+      <span class="tag-label">Dien vien: </span>
+      <a class="tab-item" *ngFor="let actor of movieItem.actors"
+        >{{ actor }},
+      </a>
+    </p>
+    <p>
+      <span class="tag-label">Bien kich: </span>
+      <a class="tab-item" *ngFor="let item of movieItem.translators"
+        >{{ item }},
+      </a>
+    </p>
+    <p>
+      <span class="tag-label">The loai: </span>
+      <a class="tab-item" *ngFor="let actor of movieItem.subCategories"
+        >{{ actor }},
+      </a>
+    </p>
+    <p>
+      <span class="tag-label">Bo phim nay thuoc the loai: </span>
+      <a> {{ movieItem.category }}</a>
+    </p>
+
+    <p>
+      <span class="tag-label">Xep hang do tuoi: </span>
+      <span class="movie-age">{{ movieItem.ages }}+</span>
+    </p>
   </div>
 </main-page>

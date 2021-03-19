@@ -1,5 +1,14 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import * as Plyr from 'plyr';
+import { IMovie } from 'src/app/interfaces/IMovie';
+import { MovieService } from 'src/app/services/movie.service';
 import { ILayoutConfig } from '../../layout/main-page/main-page.component';
 
 @Component({
@@ -7,25 +16,48 @@ import { ILayoutConfig } from '../../layout/main-page/main-page.component';
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css'],
 })
-export class MovieComponent implements AfterViewInit, OnInit {
+export class MovieComponent implements AfterViewInit, OnChanges, OnInit {
+  movieItem: IMovie;
   layoutConfig: ILayoutConfig = {
-    title: 'Phim le',
-    isLoading: true,
-    isEmpty: true,
+    title: '',
+    isLoading: false,
+    isEmpty: false,
   };
-  trailerLink: string =
-    'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4';
   public playerMovie;
-  constructor() {}
+  constructor(private route: ActivatedRoute, private movieSer: MovieService) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('oncHANGE');
+  }
+
   ngOnInit(): void {
-    this.layoutConfig.isLoading = false;
-    this.layoutConfig.isEmpty = false;
+    const movieId = this.route.snapshot.paramMap.get('id');
+    this.movieSer.getById(movieId).then((data) => {
+      this.movieItem = data;
+      this.layoutConfig.title="Ban dang xem phim: "+ data.name + " - " + data.year;
+      // this.layoutConfig.isLoading = false;
+      // this.layoutConfig.isEmpty = false;
+      this._playMoive(data.linkMovie);
+    });
   }
 
   ngAfterViewInit(): void {
     this.playerMovie = new Plyr('#player', {
       autoplay: true,
     });
+  }
+
+  private _playMoive(link) {
+    this.playerMovie.source = {
+      type: 'video',
+      sources: [
+        {
+          src: link,
+          type: 'video/mp4',
+          size: 720,
+        },
+      ],
+    };
     this.playerMovie.play();
     this.playerMovie.fullscreen.enter();
   }

@@ -8,6 +8,7 @@
   margin-bottom: 0.75em;
   color: #e5e5e5;
   padding-left: 48px;
+  text-transform: capitalize;
 }
 .category-title .sub-link {
   display: inline-block;

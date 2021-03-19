@@ -5,7 +5,7 @@
   right: 0;
   bottom: 0;
   z-index: 1;
-  transition: all 0.12s ease-out 0.3s;
+  transition: all 0.12s ease-out 0.2s;
   background-color: #434343;
   box-shadow: 1px 1px 15px black;
   border-radius: 4px;
@@ -40,7 +40,7 @@
   transition: none;
   cursor: pointer;
   visibility: hidden;
-  transition: all 0s linear 0.3s;
+  transition: all 0s step-end 0.2s;
   border-radius: 0 0 4px 4px;
   font-size: 1.15em;
 }
@@ -48,7 +48,6 @@
   visibility: visible;
   box-shadow: 1px 1px 15px black;
 }
-
-.tab-item{
+.tab-item {
   text-transform: capitalize;
 }

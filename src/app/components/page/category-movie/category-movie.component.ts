@@ -18,7 +18,6 @@ export class CategoryMovieComponent implements OnInit {
   constructor(private movieSer: MovieService, private route: ActivatedRoute) {}
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log('page param ' + id);
     this.movieSer.getAll().then((data) => {
       this.listMovie = data;
       this.layoutConfig.isLoading = false;

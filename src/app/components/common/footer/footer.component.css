@@ -1,24 +1,24 @@
-.footer{
-    width: 70%;
-    margin: 0 auto;
-    color: grey;
-    margin-top: -200px;
+.footer {
+  width: 70%;
+  margin: 0 auto;
+  color: grey;
+  /* margin-top: -180px; */
 }
 
-mat-icon{
-    margin-right: 32px;
-    font-size: 3em;
+mat-icon {
+  margin-right: 32px;
+  font-size: 3em;
 }
 
-.policy-container{
-    display: flex;
+.policy-container {
+  display: flex;
 }
-.policy-item{
-    width: 25%;
+.policy-item {
+  width: 25%;
 }
 
-.code-service{
-    border: 1px solid grey;
-    padding: 0.5em 1em;
-    display: inline-block;
+.code-service {
+  border: 1px solid grey;
+  padding: 0.5em 1em;
+  display: inline-block;
 }

@@ -52,11 +52,11 @@ export class ListMovieComponent {
   }
 
   private _tranFromSlide(index): void {
-    console.log(index);
-    console.log(this._maxScrollWidth);
-    console.log(this._clientWidth);
+    // console.log(index);
+    // console.log(this._maxScrollWidth);
+    // console.log(this._clientWidth);
     let val = this._maxScrollWidth - (this._clientWidth * index - 52);
-    console.log(val);
+    // console.log(val);
     if (val <= 0) val = 0;
     this.container.nativeElement.style.transform = `translateX(-${val}px)`;
   }
