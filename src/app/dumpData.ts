@@ -105,12 +105,14 @@ export class Dump {
     // });
     // this._initCollection('types', typeAr, gentAr);
     // this._initCollection('categories', cateAr, gentAr);
-    let gent = (data) => data;
+
+    
+    // let gent = (data) => data;
     // let movieOne = this._initMovieData(20, 1);
     // this._initCollection('movies', movieOne, gent);
     //
-    let movieTwo = this._initMovieData(100, 2);
-    this._initCollection('movies', movieTwo, gent);
+    // let movieTwo = this._initMovieData(100, 2);
+    // this._initCollection('movies', movieTwo, gent);
   }
 
   private _getCollection(name: string): any {

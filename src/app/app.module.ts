@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
 //service
 import { ConnectDbService } from './services/connect-db.service';
 //component
@@ -20,8 +19,6 @@ import { HomeComponent } from './components/page/home/home.component';
 import { MovieComponent } from './components/page/movie/movie.component';
 import { ViewListComponent } from './components/common/view-list/view-list.component';
 import { ViewGridComponent } from './components/common/view-grid/view-grid.component';
-import { ItemMovieRelatedComponent } from './components/common/item-movie-related/item-movie-related.component';
-import { ListMovieRelatedComponent } from './components/common/list-movie-related/list-movie-related.component';
 import { SearchResultComponent } from './components/page/search-result/search-result.component';
 import { MyMovieComponent } from './components/page/my-movie/my-movie.component';
 import { FeatureMovieComponent } from './components/page/feature-movie/feature-movie.component';
@@ -32,6 +29,8 @@ import { MainPageComponent } from './components/layout/main-page/main-page.compo
 import { CategoryMovieComponent } from './components/page/category-movie/category-movie.component';
 import { SearchComponent } from './components/common/search/search.component';
 import { ErrorComponent } from './components/page/error/error.component';
+import { SelectCategoryComponent } from './components/common/select-category/select-category.component';
+import { BannerViewComponent } from './components/layout/banner-view/banner-view.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +46,6 @@ import { ErrorComponent } from './components/page/error/error.component';
     MovieComponent,
     ViewListComponent,
     ViewGridComponent,
-    ItemMovieRelatedComponent,
-    ListMovieRelatedComponent,
     SearchResultComponent,
     MyMovieComponent,
     FeatureMovieComponent,
@@ -59,6 +56,8 @@ import { ErrorComponent } from './components/page/error/error.component';
     CategoryMovieComponent,
     SearchComponent,
     ErrorComponent,
+    SelectCategoryComponent,
+    BannerViewComponent,
   ],
   imports: [
     BrowserModule,

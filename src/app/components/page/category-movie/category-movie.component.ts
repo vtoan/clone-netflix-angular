@@ -10,18 +10,20 @@ import { ILayoutConfig } from '../../layout/main-page/main-page.component';
 })
 export class CategoryMovieComponent implements OnInit {
   layoutConfig: ILayoutConfig = {
-    title: 'Phan loai',
+    title: '',
     isLoading: true,
     isEmpty: true,
   };
   listMovie: IMovie[] = [];
   constructor(private movieSer: MovieService, private route: ActivatedRoute) {}
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.movieSer.getAll().then((data) => {
-      this.listMovie = data;
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.movieSer.getByCategory(id).then((data) => {
+      this.listMovie = data[1];
+      let cate = data[0];
+      this.layoutConfig.title="Phan loai: "+ cate.name
       this.layoutConfig.isLoading = false;
-      this.layoutConfig.isEmpty = data.length == 0;
+      this.layoutConfig.isEmpty = data[1] == null;
     });
   }
 }

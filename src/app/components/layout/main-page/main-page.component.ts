@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { IMovie } from 'src/app/interfaces/IMovie';
-import { ISubCategory } from '../../../interfaces/ISubCategory';
 import { MovieDetailComponent } from '../../common/movie-detail/movie-detail.component';
 
 @Component({
@@ -12,17 +10,13 @@ import { MovieDetailComponent } from '../../common/movie-detail/movie-detail.com
 })
 export class MainPageComponent {
   @Input() config: ILayoutConfig;
-  constructor(private router: Router, public dialog: MatDialog) {}
-  onChangeValue(e) {
-    let val = e.target.value;
-    this.router.navigateByUrl('/category-movie/' + val);
-  }
+  constructor( public dialog: MatDialog) {}
   onMoreDetail(): void {
     const dialogRef = this.dialog.open(MovieDetailComponent, {
       height: '95%',
       width: '900px',
     });
-    
+
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
@@ -33,7 +27,7 @@ export interface ILayoutConfig {
   isEmpty: boolean;
   typeLoading?: string;
   title: string;
-  subCategories?: ISubCategory[];
+  selectCategory?: boolean;
   hideHeading?: boolean;
   itemDisplay?: IMovie;
 }

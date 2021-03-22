@@ -18,3 +18,13 @@ export function FilterMovie(datas: any[], observer$: Subject<any>): void {
   });
   observer$.next(mv);
 }
+
+export function ToModelListView(data: any): IModelListView {
+  let category = data[0];
+  return {
+    id: category.id,
+    title: category.name,
+    movies: data[1],
+  };
+}
+

@@ -1,0 +1,8 @@
+<ng-container>
+  <select (change)="onChangeValue($event)">
+    <option value="0" selected >Tat ca</option>
+    <option *ngFor="let item of categories" value="{{ item.id }}">
+      {{ item.name }}
+    </option>
+  </select>
+</ng-container>

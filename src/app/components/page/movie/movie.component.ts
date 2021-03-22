@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  AfterViewInit,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import * as Plyr from 'plyr';
 import { IMovie } from 'src/app/interfaces/IMovie';
@@ -16,7 +10,7 @@ import { ILayoutConfig } from '../../layout/main-page/main-page.component';
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css'],
 })
-export class MovieComponent implements AfterViewInit, OnChanges, OnInit {
+export class MovieComponent implements AfterViewInit, OnInit {
   movieItem: IMovie;
   layoutConfig: ILayoutConfig = {
     title: '',
@@ -26,17 +20,14 @@ export class MovieComponent implements AfterViewInit, OnChanges, OnInit {
   public playerMovie;
   constructor(private route: ActivatedRoute, private movieSer: MovieService) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('oncHANGE');
-  }
-
   ngOnInit(): void {
     const movieId = this.route.snapshot.paramMap.get('id');
     this.movieSer.getById(movieId).then((data) => {
       this.movieItem = data;
-      this.layoutConfig.title="Ban dang xem phim: "+ data.name + " - " + data.year;
-      // this.layoutConfig.isLoading = false;
-      // this.layoutConfig.isEmpty = false;
+      this.layoutConfig.title =
+        'Ban dang xem phim: ' + data.name + ' - ' + data.year;
+      this.layoutConfig.isLoading = false;
+      this.layoutConfig.isEmpty = false;
       this._playMoive(data.linkMovie);
     });
   }
