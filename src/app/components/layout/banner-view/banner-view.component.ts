@@ -13,7 +13,6 @@ import { ILayoutConfig } from '../../layout/main-page/main-page.component';
 export class BannerViewComponent implements OnInit {
   @Input() heading: boolean;
   @Input() categories: boolean;
-
   @Input() title: string = '';
   @Input() itemDisplay: IMovie = {
     id: 2,

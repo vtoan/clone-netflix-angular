@@ -1,5 +1,5 @@
 <ng-container>
-  <select (change)="onChangeValue($event)">
+  <select (change)="onChangeValue($event)" style="min-width: 200px;">
     <option value="0" selected >Tat ca</option>
     <option *ngFor="let item of categories" value="{{ item.id }}">
       {{ item.name }}
